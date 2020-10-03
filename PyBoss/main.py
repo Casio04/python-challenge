@@ -77,10 +77,7 @@ with open(employee_file, "r") as csvfile:
         new_date.append(dt)
         SSN = row[3].replace(row[3][0:6], "***-**")
         new_SSN.append(SSN)
-        if row[4] in us_state_abbrev:
-            abbv = f"{us_state_abbrev[str(row[4])]}"
-            abbv_new = row[4].replace(row[4],abbv)
-            new_state.append(abbv_new)
+        new_state.append(us_state_abbrev[row[4]])
 
     
 new_csv = zip(id_employee,first_name, last_name, new_date, new_SSN, new_state)

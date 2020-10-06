@@ -1,6 +1,7 @@
 
 import csv
 import os
+import datetime
 
 budget_bank = os.path.join("Resources","budget_data.csv")
 total_months = 0
@@ -41,7 +42,10 @@ with open(budget_bank, "r") as csvfile:
             total_amount = (total_amount + int(row[1]))
             average_change = total_amount / total_months
             actual_value = next_value
-            
+
+
+    month_increase =  datetime.datetime.strptime(str(month_increase),"%b-%y").strftime("%b-%Y")      
+    month_decrease =  datetime.datetime.strptime(str(month_decrease),"%b-%y").strftime("%b-%Y")      
     average_change = round(change_sum / (total_months - 1),2)
     result =f"""
     Financial Analyisis
